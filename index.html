@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050913" />
+  <title>VOLT — Future in Motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050913;--panel:#0b1321;--blue:#66e3ff;--muted:#8a9bb2;--white:#f5f8ff;--line:rgba(160,194,230,.16)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(92,153,202,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(92,153,202,.12) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1240px,calc(100% - 48px));margin:auto}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative;z-index:3}.brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:5px;font-size:20px}.brand-mark{width:30px;height:22px;border:2px solid var(--blue);transform:skew(-25deg);display:inline-block;box-shadow:0 0 18px #66e3ff55}.navlinks{display:flex;gap:34px;color:#a8b5c8;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}.navlinks a:hover{color:var(--blue)}.nav-cta{border:1px solid var(--blue);padding:12px 17px;color:var(--blue);font-size:11px;letter-spacing:1.6px;text-transform:uppercase}
+    .hero{min-height:690px;position:relative;display:grid;grid-template-columns:.85fr 1.35fr;align-items:center;padding:55px 0 40px}.eyebrow{color:var(--blue);font-size:11px;letter-spacing:4px;text-transform:uppercase;display:flex;align-items:center;gap:12px}.eyebrow:before{content:"";width:30px;height:1px;background:var(--blue)}h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(72px,9vw,132px);line-height:.82;letter-spacing:-2px;text-transform:uppercase;margin:28px 0 24px;font-weight:800}h1 span{display:block;color:transparent;-webkit-text-stroke:1px #dceaff}.intro{max-width:360px;color:#9eacc0;font-size:14px;line-height:1.9}.hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.btn{padding:15px 21px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid var(--line);cursor:pointer;background:transparent;color:var(--white);transition:.2s}.btn.primary{background:var(--blue);color:#06101b;border-color:var(--blue)}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 35px #66e3ff20}.scene-wrap{position:relative;min-width:0;height:530px}.scene-wrap:before{content:"";position:absolute;width:78%;height:65%;border-radius:50%;background:#168dc91b;filter:blur(70px);left:12%;top:18%}.scene{position:absolute;inset:0;cursor:grab}.scene:active{cursor:grabbing}canvas{display:block;width:100%;height:100%;outline:none}.model-label{position:absolute;right:10px;top:20px;color:#8297b3;font-size:10px;letter-spacing:2px;writing-mode:vertical-rl}.drag-note{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:10px;color:#9eacc0;letter-spacing:1.8px;white-space:nowrap;display:flex;gap:9px;align-items:center}.drag-note span{color:var(--blue);font-size:15px}.loading{position:absolute;inset:0;display:grid;place-items:center;background:#050913;color:var(--blue);font-size:11px;letter-spacing:3px;z-index:2;transition:opacity .5s}.loading.hide{opacity:0;pointer-events:none}.error{display:none;position:absolute;inset:0;place-items:center;text-align:center;color:#ffb6b6;padding:25px;font-size:13px;line-height:1.7}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin-bottom:105px}.stat{padding:0 28px;border-right:1px solid var(--line)}.stat:first-child{padding-left:0}.stat:last-child{border:0}.stat strong{font-family:'Barlow Condensed',sans-serif;font-size:34px;letter-spacing:1px;display:block}.stat span{font-size:10px;color:var(--muted);letter-spacing:1.8px;text-transform:uppercase;display:block;margin-top:5px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px}.section-head h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,6vw,70px);text-transform:uppercase;line-height:.9;margin:18px 0 0}.section-head p{max-width:330px;color:var(--muted);font-size:13px;line-height:1.8}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:27px 25px 30px;border:1px solid var(--line);background:linear-gradient(145deg,#0b1423,#080d17);min-height:210px}.feature .num{font-size:11px;color:var(--blue);letter-spacing:2px}.feature h3{font-size:15px;letter-spacing:1px;text-transform:uppercase;margin:30px 0 12px}.feature p{color:var(--muted);font-size:12px;line-height:1.8;margin:0}.showcase{margin:110px 0 90px;padding:55px;background:radial-gradient(ellipse at 80% 40%,#0e47705c,transparent 55%),#0a1220;border:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:30px}.showcase h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,6vw,72px);text-transform:uppercase;line-height:.9;margin:18px 0}.showcase p{color:var(--muted);font-size:13px;line-height:1.8;max-width:450px}.showcase .btn{flex-shrink:0}footer{border-top:1px solid var(--line);padding:25px 0;color:#71829b;font-size:10px;letter-spacing:1.5px;display:flex;justify-content:space-between;gap:15px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#122337;border:1px solid #66e3ff77;padding:13px 18px;font-size:12px;opacity:0;pointer-events:none;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:850px){.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.hero-copy{position:relative;z-index:1}.scene-wrap{height:410px;margin-top:-10px}.hero{min-height:auto}.stats{margin-bottom:75px}.stat{padding:0 14px}.stat strong{font-size:28px}.feature-grid{grid-template-columns:1fr}.feature{min-height:auto}.feature h3{margin-top:20px}.showcase{padding:32px;display:block}.showcase .btn{margin-top:15px}.section-head{display:block}.section-head p{margin-top:22px}}
+    @media(max-width:480px){.wrap{width:calc(100% - 32px)}.nav{height:70px}.nav-cta{padding:10px;font-size:9px}.hero{padding-top:45px}h1{font-size:76px}.scene-wrap{height:320px;margin-left:-10px;margin-right:-10px}.stats{grid-template-columns:repeat(2,1fr);gap:24px}.stat:nth-child(2){border:0}.stat:nth-child(3){padding-left:0}.stat strong{font-size:30px}.showcase{margin:75px 0 65px}footer{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#home" aria-label="VOLT home"><span class="brand-mark"></span>VOLT</a>
+    <nav class="navlinks"><a href="#home">Home</a><a href="#technology">Technology</a><a href="#design">Design</a></nav>
+    <a class="nav-cta" href="#design">Discover the car ↗</a>
+  </header>
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">The next electric era</div>
+        <h1>Beyond<br><span>the road.</span></h1>
+        <p class="intro">A new vision of electric performance. Sculpted by the wind, powered by innovation, built to move you forward.</p>
+        <div class="hero-actions"><a class="btn primary" href="#design">Explore the machine <span>↗</span></a><button class="btn" id="resetView">Reset 3D view ↻</button></div>
+      </div>
+      <div class="scene-wrap">
+        <div class="loading" id="loading">INITIALIZING 3D MODEL...</div>
+        <div class="scene" id="scene" aria-label="Interactive 3D car model"></div>
+        <div class="error" id="error">Model belum bisa dimuat.<br>Pastikan file <b>assets/futuristic-car.glb</b> ada dan jalankan website melalui Live Server.</div>
+        <div class="model-label">VOLT / CONCEPT 01</div>
+        <div class="drag-note"><span>↔</span> DRAG TO ROTATE · SCROLL TO ZOOM</div>
+      </div>
+    </section>
+    <section class="wrap stats" aria-label="Concept highlights">
+      <div class="stat"><strong>100%</strong><span>Electric vision</span></div><div class="stat"><strong>∞</strong><span>Possibilities</span></div><div class="stat"><strong>01</strong><span>Concept series</span></div><div class="stat"><strong>3D</strong><span>Explore every angle</span></div>
+    </section>
+    <section class="wrap" id="technology">
+      <div class="section-head"><div><div class="eyebrow">Designed for tomorrow</div><h2>Form meets<br>function.</h2></div><p>Every curve has a purpose. A concept built around clean proportions, futuristic character, and an immersive digital experience.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="num">01 / AERODYNAMICS</div><h3>Cut through the air</h3><p>Flowing surfaces and a low, purposeful silhouette give the concept its unmistakable presence.</p></article>
+        <article class="feature"><div class="num">02 / ELECTRIC DNA</div><h3>Quietly powerful</h3><p>An electric-first philosophy puts smooth performance and forward-thinking design at the center.</p></article>
+        <article class="feature"><div class="num">03 / DIGITAL CRAFT</div><h3>Every angle matters</h3><p>Interact with the 3D model. Rotate the car and explore its shape from different perspectives.</p></article>
+      </div>
+    </section>
+    <section class="wrap showcase" id="design"><div><div class="eyebrow">Meet concept 01</div><h2>Tomorrow is<br>already here.</h2><p>This is a design concept experience. The 3D model is the centerpiece—rotate it, zoom in, and take a closer look.</p></div><button class="btn primary" id="showCar">Back to the car ↑</button></section>
+  </main>
+  <footer class="wrap"><span>© 2026 VOLT CONCEPT STUDIO</span><span>DESIGNED FOR THE NEXT GENERATION</span></footer>
+  <div class="toast" id="toast">3D view reset</div>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const mount = document.getElementById('scene');
+    const loading = document.getElementById('loading');
+    const errorBox = document.getElementById('error');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x050913);
+    const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 1000);
+    camera.position.set(5, 3, 7);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    mount.appendChild(renderer.domElement);
+
+    scene.add(new THREE.HemisphereLight(0xb9dcff, 0x111522, 2.1));
+    const key = new THREE.DirectionalLight(0xffffff, 3.2); key.position.set(5, 8, 5); scene.add(key);
+    const rim = new THREE.DirectionalLight(0x48cfff, 4.2); rim.position.set(-6, 3, -4); scene.add(rim);
+    const fill = new THREE.PointLight(0x1768ff, 18, 25); fill.position.set(0, -1, 4); scene.add(fill);
+
+    const floor = new THREE.Mesh(new THREE.CircleGeometry(7, 80), new THREE.MeshBasicMaterial({ color: 0x071321, transparent: true, opacity: .8 }));
+    floor.rotation.x = -Math.PI / 2; floor.position.y = -0.75; scene.add(floor);
+    const grid = new THREE.GridHelper(18, 36, 0x164366, 0x0b2035); grid.position.y = -0.73; grid.material.transparent = true; grid.material.opacity = .42; scene.add(grid);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; controls.dampingFactor = .055; controls.enablePan = false;
+    controls.minDistance = 2.5; controls.maxDistance = 13; controls.minPolarAngle = .25; controls.maxPolarAngle = Math.PI * .49;
+    const initialCamera = new THREE.Vector3(5, 3, 7);
+    let car = null;
+
+    const gltfLoader = new GLTFLoader();
+    const modelPaths = [
+      new URL('./assets/futuristic-car.glb', document.baseURI).href,
+      new URL('/assets/futuristic-car.glb', window.location.origin).href,
+      new URL('/car-3d-website/assets/futuristic-car.glb', window.location.origin).href
+    ].filter((url, index, list) => list.indexOf(url) === index);
+
+    async function loadCarModel() {
+      const failures = [];
+      for (const modelUrl of modelPaths) {
+        try {
+          loading.textContent = 'LOADING 3D MODEL...';
+          const response = await fetch(modelUrl, { cache: 'no-store' });
+          if (!response.ok) {
+            failures.push(`${modelUrl} (HTTP ${response.status})`);
+            continue;
+          }
+          const buffer = await response.arrayBuffer();
+          if (buffer.byteLength < 20) {
+            failures.push(`${modelUrl} (file kosong/tidak lengkap)`);
+            continue;
+          }
+          await new Promise((resolve, reject) => {
+            gltfLoader.parse(buffer, new URL('.', modelUrl).href, (gltf) => {
+              car = gltf.scene;
+              const box = new THREE.Box3().setFromObject(car);
+              const size = box.getSize(new THREE.Vector3());
+              const center = box.getCenter(new THREE.Vector3());
+              const maxDim = Math.max(size.x, size.y, size.z);
+              if (maxDim > 0) car.scale.setScalar(5.2 / maxDim);
+              car.position.sub(center.multiplyScalar(car.scale.x));
+              const fitted = new THREE.Box3().setFromObject(car);
+              car.position.y -= fitted.min.y + .45;
+              scene.add(car);
+              controls.target.set(0, 0, 0);
+              resolve();
+            }, reject);
+          });
+          loading.classList.add('hide');
+          setTimeout(() => loading.remove(), 600);
+          return;
+        } catch (err) {
+          failures.push(`${modelUrl} (${err?.message || 'gagal dibaca'})`);
+          console.error('Gagal pada path model:', modelUrl, err);
+        }
+      }
+      loading.classList.add('hide');
+      errorBox.style.display = 'grid';
+      errorBox.innerHTML = `<div><b>Model 3D belum berhasil dimuat.</b><br><br>Pastikan folder <code>assets</code> berada satu folder dengan <code>index.html</code>.<br><small style="display:block;margin-top:10px;overflow-wrap:anywhere">Detail: ${failures.map(x => x.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;')).join('<br>')}</small></div>`;
+      console.error('Semua path model gagal:', failures);
+    }
+    loadCarModel();
+
+    function resize() {
+      const w = mount.clientWidth || 1, h = mount.clientHeight || 1;
+      camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h, false);
+    }
+    new ResizeObserver(resize).observe(mount); resize();
+    function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); }
+    animate();
+
+    const toast = document.getElementById('toast'); let toastTimer;
+    document.getElementById('resetView').addEventListener('click', () => {
+      camera.position.copy(initialCamera); controls.target.set(0, 0, 0); controls.update();
+      toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+    });
+    document.getElementById('showCar').addEventListener('click', () => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }));
+  </script>
+</body>
+</html>
